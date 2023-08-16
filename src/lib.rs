@@ -1010,7 +1010,7 @@ impl<'a> Cmd<'a> {
 
             command.stdin(match &self.data.stdin_contents {
                 Some(_) => Stdio::piped(),
-                None => Stdio::null(),
+                None => Stdio::inherit(),
             });
 
             command.spawn().map_err(|err| {
